@@ -3,6 +3,7 @@ import torch
 from typing import Optional, Set
 import numpy as np
 import cv2
+from pynput import keyboard
 
 
 class ManualPolicy(BasePolicy):
@@ -23,7 +24,6 @@ class ManualPolicy(BasePolicy):
 		self._pynput_ok = False
 		self._pressed: Set[str] = set()
 		try:
-			from pynput import keyboard  # type: ignore
 
 			def on_press(key):
 				try:
